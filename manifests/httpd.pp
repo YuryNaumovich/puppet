@@ -1,9 +1,5 @@
-node /^slave\d+$/ {
+node 'slave1.puppet','slave2.puppet' {
   package { 'httpd' :
   ensure => installed,
  }
-}
-
-node default {
-  notify { 'this node did not match any of the listed definitions': }
 }
