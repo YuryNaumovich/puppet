@@ -1,8 +1,4 @@
 node 'slave1.puppet','slave2.puppet' {
-  include base::git_clone
-}
-
-{
   package { 'httpd' :
   ensure => installed,
                    } ->
@@ -10,4 +6,11 @@ node 'slave1.puppet','slave2.puppet' {
   ensure => running,
   enable => true,
  }
+ 
+ vcsrepo { '/var/www/html':
+  ensure   => present,
+  provider => git,
+  source   => 'https://github.com/Fenikks/itacademy-devops-files',
+ }
+ 
 }
