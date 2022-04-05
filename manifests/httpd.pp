@@ -1,4 +1,4 @@
-node 'slave(*).puppet' {
+node 'slave(**).puppet' {
               package { 'httpd' :
               ensure => installed,
                        }
