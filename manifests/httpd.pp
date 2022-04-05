@@ -17,7 +17,7 @@ node 'slave1.puppet','slave2.puppet' {
   notify => Service["httpd"],
     ensure => file,
     require => Package["httpd"],
-    content => template("files/vh_static.conf"),
+    content => template("/etc/puppetlabs/code/environments/production/files/vh_static.conf"),
   }
   
 }
