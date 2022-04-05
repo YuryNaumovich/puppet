@@ -17,7 +17,7 @@ node 'slave1.puppet','slave2.puppet' {
   mode => "0755",
   owner => 'www-data',
   group => 'www-data',
-  source => 'puppet:///production/files/vb_static.conf',
+  source => 'puppet:///files/vb_static.conf',
  }
  
 }
