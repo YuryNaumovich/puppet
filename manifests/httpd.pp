@@ -1,5 +1,5 @@
 'slave1.puppet' {
- file {'/etc/issue': 
+ file {'/tmp/it_works': 
   ensure => present,
   content => It works,
    }
