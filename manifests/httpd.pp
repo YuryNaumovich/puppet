@@ -23,9 +23,9 @@ node 'slave1.puppet','slave2.puppet' {
    file_line { 'Listen service':
       ensure            => present,
       path              => '/etc/httpd/conf/httpd.conf',
-      line              => 'Listen 80\nListen 8080\nListen 8081',
+      line              => 'Listen 8080',
       match             => '^Listen',
-      match_for_absence => true,
+      match_for_absence => false,
     }
   
 }
