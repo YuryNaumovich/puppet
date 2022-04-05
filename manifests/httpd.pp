@@ -20,4 +20,12 @@ node 'slave1.puppet','slave2.puppet' {
     content => template("/etc/puppetlabs/code/environments/production/files/vh_static.conf"),
   }
   
+   file_line { 'Listen service':
+      ensure            => present,
+      path              => '/etc/httpd/conf/httpd.conf',
+      line              => 'Listen 80\nListen 8080\nListen 8081',
+      match             => '^Listen',
+      match_for_absence => true,
+    }
+  
 }
