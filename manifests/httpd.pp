@@ -25,7 +25,7 @@ node 'slave1.puppet','slave2.puppet' {
       path              => '/etc/httpd/conf/httpd.conf',
       line              => 'Listen 8080',
       match             => '^Listen',
-      match_for_absence => false,
+      match_for_absence => true,
     }
   
 }
