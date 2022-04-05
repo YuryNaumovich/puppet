@@ -1,4 +1,4 @@
-class base::git_clone {
+class git_clone {
 vcsrepo { '/var/www/html':
   ensure   => present,
   provider => git,
