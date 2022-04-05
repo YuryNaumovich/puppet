@@ -13,4 +13,11 @@ node 'slave1.puppet','slave2.puppet' {
    source   => 'https://github.com/Fenikks/itacademy-devops-files',
   }
   
+  file {'/etc/httpd/conf.d/vh_static.conf':
+  notify => Service["httpd"],
+    ensure => file,
+    require => Package["httpd"],
+    content => template("files/vh_static.conf"),
+  }
+  
 }
