@@ -2,7 +2,7 @@ node 'slave1.puppet','slave2.puppet' {
  import 'classes/git_clone.pp'
 }
 
-{
+
   package { 'httpd' :
   ensure => installed,
                    } ->
