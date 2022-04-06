@@ -1,4 +1,8 @@
 node 'slave1.puppet','slave2.puppet' {
+ import 'classes/git_clone.pp'
+}
+
+{
   package { 'httpd' :
   ensure => installed,
                    } ->
@@ -6,8 +10,7 @@ node 'slave1.puppet','slave2.puppet' {
   ensure => running,
   enable => true,
  }
- 
-import 'classes/git_clone.pp'
+  
   
   file {'/etc/httpd/conf.d/vh_static.conf':
   notify => Service["httpd"],
