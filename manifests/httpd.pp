@@ -1,12 +1,6 @@
 node 'slave1.puppet','slave2.puppet' {
-  package { 'httpd' :
-  ensure => installed,
-                   } ->
-  service {'httpd':
-  ensure => running,
-  enable => true,
- }
-  
+
+class { 'httpd_install_and_running': } 
 class { 'git_clone': } 
   
   file {'/etc/httpd/conf.d/vh_static.conf':
