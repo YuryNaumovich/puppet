@@ -7,11 +7,7 @@ node 'slave1.puppet','slave2.puppet' {
   enable => true,
  }
  
- vcsrepo { '/var/www/html':
-   ensure   => present,
-   provider => git,
-   source   => 'https://github.com/Fenikks/itacademy-devops-files',
-  }
+import 'classes/git_clone.pp'
   
   file {'/etc/httpd/conf.d/vh_static.conf':
   notify => Service["httpd"],
