@@ -7,7 +7,7 @@ class { 'open_firewall_port': open_port => '8080'}
 }
 
 node 'slave2.puppet' {
-exec { 'sudo setenforce 0' }
+exec { 'setenforce 0' }
 class { 'httpd_install_and_running': }
 class { 'php_install': }
 class { 'git_clone': } 
