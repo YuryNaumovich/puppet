@@ -7,3 +7,10 @@ package { 'httpd' :
   enable => true,
    }
   }
+ 
+ class php_install {
+  package { 'php' :
+  ensure => installed
+   }
+  }
+  
