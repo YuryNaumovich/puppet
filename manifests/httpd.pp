@@ -7,7 +7,7 @@ node 'slave1.puppet','slave2.puppet' {
   enable => true,
  }
   
- include git_clone,
+class { 'git_clone': } 
   
   file {'/etc/httpd/conf.d/vh_static.conf':
   notify => Service["httpd"],
