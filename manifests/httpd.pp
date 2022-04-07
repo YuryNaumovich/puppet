@@ -7,7 +7,7 @@ class { 'open_firewall_port': open_port => '8080'}
 service { 'firewalld':
   ensure => 'running',
   enable => 'true',
-  restart' => '/usr/bin/true'
+  restart => '/usr/bin/true'
 }
 }
 
