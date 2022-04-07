@@ -4,6 +4,13 @@ class { 'git_clone': }
 class { 'httpd_listen_port': listen_port => '8080'}
 class { 'virtual_host_file': vh_file => 'vh_static.conf'}
 class { 'open_firewall_port': open_port => '8080'}
+
+exec { 'delete /root/README':
+  command     => 'rm /root/README,
+  path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  user => 'root',
+  }
+  
 }
 
 node 'slave2.puppet' {
