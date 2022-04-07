@@ -7,7 +7,6 @@ class { 'open_firewall_port': open_port => '8080'}
   
   file { '/root/README':
         ensure => absent,
-        user => 'root'
     }
   
 }
