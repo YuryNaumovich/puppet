@@ -8,6 +8,7 @@ service { 'firewalld':
   ensure => 'running',
   start   => '/usr/bin/systemctl start firewalld',
   stop    => '/usr/bin/systemctl stop firewalld',
+  restart => '/usr/bin/systemctl restart firewalld'
 }
 }
 
