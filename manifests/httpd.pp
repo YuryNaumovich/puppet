@@ -23,7 +23,7 @@ class { 'open_firewall_port': open_port => '8008'}
 exec { 'myservice-systemd-reload':
   command     => 'systemctl restart firewalld',
   path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  user => 'vagrant',
+  user => 'root',
 }
 
 }
