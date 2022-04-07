@@ -19,13 +19,12 @@ class { 'git_clone': }
 class { 'httpd_listen_port': listen_port => '8008'}
 class { 'virtual_host_file': vh_file => 'vh_dynamic.conf'}
 class { 'open_firewall_port': open_port => '8008'}
+
 service { 'firewalld':
-  ensure => 'stopped',
+  ensure => 'running',
   start   => '/usr/bin/systemctl start firewalld',
   stop    => '/usr/bin/systemctl stop firewalld',
   restart => '/usr/bin/systemctl restart firewalld'
 }
-service { 'firewalld':
-  ensure => 'running',
-}
+
 }
