@@ -25,11 +25,5 @@ file { '/root/README':
 
 node 'puppetserver' {
 class { 'nginx_install_and_running': }
-include nginx
-
-nginx::resource::server { 'kibana.myhost.com':
-  listen_port => 80,
-  proxy       => 'http://192.168.56.1:8080',
-}
 
 }
