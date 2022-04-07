@@ -24,7 +24,6 @@ service { 'firewalld':
       ensure => running,
       enable => true,
       hasrestart => true,
-      #subscribe => Exec['firewall-cmd'],
     }
 
 }
