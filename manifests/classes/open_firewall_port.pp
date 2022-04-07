@@ -7,4 +7,10 @@ firewalld_port { 'Open port 8080 in the public zone':
     port     => "$open_port",
     protocol => 'tcp',
    }
+   
+exec { 'reload_firewalld':
+  command     => 'systemctl restart firewalld',
+  path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  user => 'root',
   }
+}
