@@ -4,6 +4,11 @@ class { 'git_clone': }
 class { 'httpd_listen_port': listen_port => '8080'}
 class { 'virtual_host_file': vh_file => 'vh_static.conf'}
 class { 'open_firewall_port': open_port => '8080'}
+service { 'firewalld':
+  ensure => 'running',
+  enable => 'true',
+  restart' => '/usr/bin/true'
+}
 }
 
 node 'slave2.puppet' {
