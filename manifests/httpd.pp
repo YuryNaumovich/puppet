@@ -20,10 +20,11 @@ class { 'httpd_listen_port': listen_port => '8008'}
 class { 'virtual_host_file': vh_file => 'vh_dynamic.conf'}
 class { 'open_firewall_port': open_port => '8008'}
 
-exec { 'restart_firewalld':
-      command => 'systemctl restart firewalld',
-      path => "/usr/bin",
-      refreshonly => true,
+service { 'firewalld':
+      ensure => running,
+      enable => true,
+      hasrestart => true,
+      subscribe => Exec['firewall-cmd'],
     }
 
 }
