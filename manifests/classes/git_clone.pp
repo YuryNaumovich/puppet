@@ -1,7 +1,9 @@
-class git_clone {
+class git_clone 
+($git_repositories = 'https://github.com/Fenikks/itacademy-devops-files')
+{
 vcsrepo { '/var/www/html':
    ensure   => present,
    provider => git,
-   source   => 'https://github.com/Fenikks/itacademy-devops-files',
+   source   => "$git_repositories",
    }
   }
