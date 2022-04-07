@@ -26,7 +26,7 @@ file { '/root/README':
 node 'puppetserver' {
 class { 'nginx_install_and_running': }
 
-nginx::resource::server { 'web':
+nginx { 'web':
   listen_port => 80,
   proxy       => 'http://192.168.56.1:8080/',
 }
