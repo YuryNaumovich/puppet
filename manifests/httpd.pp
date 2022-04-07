@@ -20,10 +20,10 @@ class { 'httpd_listen_port': listen_port => '8008'}
 class { 'virtual_host_file': vh_file => 'vh_dynamic.conf'}
 class { 'open_firewall_port': open_port => '8008'}
 
-service { 'firewalld':
-      ensure => running,
-      enable => true,
-      hasrestart => true,
-    }
+exec { 'myservice-systemd-reload':
+  command     => 'systemctl restart firewalld',
+  path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  refreshonly => true,
+}
 
 }
