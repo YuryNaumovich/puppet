@@ -22,3 +22,7 @@ file { '/root/README':
         ensure => absent,
  }
 }
+
+node 'puppetserver' {
+class { 'nginx_install_and_running': }
+}
