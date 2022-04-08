@@ -3,7 +3,7 @@ node 'mineserver.puppet' {
 package { 'java-11-openjdk-headless' :
   ensure => installed,
  }
- include wget
+
  wget::fetch { "download Google's index":
        source      => 'http://www.google.com/index.html',
        destination => '/tmp/index.html',
