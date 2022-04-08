@@ -37,5 +37,5 @@ file {"/etc/nginx/conf.d/nginx_proxy_pass.conf":
     content => template("/etc/puppetlabs/code/environments/production/files/nginx_proxy_pass.conf"),
    }
    
-class { 'open_firewall_port': open_port => '81,82'}
+class { 'open_firewall_port': open_port => '81-82'}
 }
