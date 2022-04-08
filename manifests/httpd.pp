@@ -14,6 +14,11 @@ exec { 'get_minecraft':
   path    => ['/usr/bin', '/usr/sbin',],
   creates => '/opt/minecraft/server.jar',
 }
+exec { 'Install minecraft':
+ command    => 'java -Xmx1024M -Xms1024M -jar minecraft_server.1.18.2.jar nogui',
+ path       => ['/usr/bin', '/usr/sbin',],
+ user       => 'root',
+}
 
 }
 
