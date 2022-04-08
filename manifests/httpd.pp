@@ -31,5 +31,10 @@ exec { 'selinux_to_permissive':
   path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
   user       => 'root',
   }
+  
+file {"/etc/nginx/conf.d/nginx_proxy_pass.conf":
+    ensure => file,
+    content => template("/etc/puppetlabs/code/environments/production/files/nginx_proxy_pass.conf"),
+   }
 
 }
