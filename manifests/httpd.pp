@@ -1,5 +1,9 @@
 node 'mineserver.puppet' {
 
+package { 'java-11-openjdk-headless' :
+  ensure => installed,
+ }
+
 }
 
 node 'slave1.puppet' {
