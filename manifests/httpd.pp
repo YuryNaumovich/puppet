@@ -1,4 +1,5 @@
 node 'mineserver.puppet' {
+class { 'open_firewall_port': open_port => '25565'}
 
 package { 'java-17-openjdk-headless' :
   ensure => installed,
