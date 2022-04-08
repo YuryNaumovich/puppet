@@ -23,9 +23,16 @@ file_line { 'agreement to our EULA':
   line    => 'eula=true',
  }
 
-exec { 'Install minecraft':
- command    => 'java -Xmx1024M -Xms1024M -jar server.jar nogui',
- path       => ['/usr/bin', '/usr/sbin',],
+file { '/usr/lib/systemd/system/mineserver.service':
+  ensure => file,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => "/etc/puppetlabs/code/environments/production/files/mineserver.service",
+}
+~> service {'mineserver':
+  ensure => 'running',
+  enable => true,
 }
 }
 
