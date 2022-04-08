@@ -1,6 +1,6 @@
 node 'mineserver.puppet' {
 
-package { 'java-11-openjdk-headless' :
+package { 'java-17-openjdk-headless' :
   ensure => installed,
  }
  
