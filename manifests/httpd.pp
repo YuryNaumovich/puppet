@@ -38,5 +38,5 @@ file {"/etc/nginx/conf.d/nginx_proxy_pass.conf":
    }
    
 class { 'open_firewall_port': open_port => '81'}
-
+class { 'open_firewall_port': open_port => '82'}
 }
