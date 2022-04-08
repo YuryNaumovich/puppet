@@ -25,15 +25,9 @@ file_line { 'agreement to our EULA':
 
 file { '/etc/systemd/system/mineserver.service':
   ensure => file,
-  owner  => 'root',
-  group  => 'root',
-  mode   => '0644',
   source => "/etc/puppetlabs/code/environments/production/files/mineserver.service",
 }
-~> service {'mineserver':
-  ensure => 'running',
-  enable => true,
-}
+
 }
 
 node 'slave1.puppet' {
