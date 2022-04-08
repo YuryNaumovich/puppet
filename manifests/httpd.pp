@@ -23,7 +23,7 @@ file_line { 'agreement to our EULA':
   line    => 'eula=true',
  }
 
-file { '/usr/lib/systemd/system/mineserver.service':
+file { '/etc/systemd/system/mineserver.service':
   ensure => file,
   owner  => 'root',
   group  => 'root',
