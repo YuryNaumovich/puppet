@@ -4,12 +4,12 @@ package { 'java-11-openjdk-headless' :
   ensure => installed,
  }
 
- wget::fetch { "download Google's index":
-       source      => 'http://www.google.com/index.html',
-       destination => '/tmp/index.html',
-       timeout     => 0,
-       verbose     => false,
-    }
+exec { 'get_minecraft':
+  cwd     => '/opt/minecraft',
+  command => '/bin/wget https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar',
+  path    => ['/usr/bin', '/usr/sbin',],
+  creates => '/opt/minecraft/server.jar',
+}
 
 }
 
