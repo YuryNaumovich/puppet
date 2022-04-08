@@ -37,4 +37,11 @@ file {"/etc/nginx/conf.d/nginx_proxy_pass.conf":
     ensure => file,
     content => template("/etc/puppetlabs/code/environments/production/files/nginx_proxy_pass.conf"),
    }
+   
+ exec { 'reboot_nginx':
+  command     => 'systemctl restart nginx',
+  path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  user => 'root',
+  }
+   
 }
