@@ -24,6 +24,7 @@ file { '/root/README':
 }
 
 node 'puppetserver' {
+class { 'open_firewall_port': open_port => '81-82'}
 class { 'nginx_install_and_running': }
 
 exec { 'selinux_to_permissive':
@@ -36,6 +37,4 @@ file {"/etc/nginx/conf.d/nginx_proxy_pass.conf":
     ensure => file,
     content => template("/etc/puppetlabs/code/environments/production/files/nginx_proxy_pass.conf"),
    }
-   
-class { 'open_firewall_port': open_port => '81-82'}
 }
