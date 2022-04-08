@@ -14,11 +14,6 @@ exec { 'get_minecraft':
   path    => ['/usr/bin', '/usr/sbin',],
   creates => '/opt/minecraft/server.jar',
 }
-exec { 'Install minecraft':
- command    => 'java -Xmx1024M -Xms1024M -jar server.jar nogui',
- path       => ['/usr/bin', '/usr/sbin',],
- user       => 'root',
-}
 
 file_line { 'agreement to our EULA':
   ensure  => present,
@@ -27,6 +22,10 @@ file_line { 'agreement to our EULA':
   line    => 'eula=true',
  }
 
+exec { 'Install minecraft':
+ command    => 'java -Xmx1024M -Xms1024M -jar server.jar nogui',
+ path       => ['/usr/bin', '/usr/sbin',],
+}
 }
 
 node 'slave1.puppet' {
