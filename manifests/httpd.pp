@@ -20,6 +20,13 @@ exec { 'Install minecraft':
  user       => 'root',
 }
 
+file_line { 'agreement to our EULA':
+  ensure  => present,
+  match   => "^eula=false",
+  path    => '/opt/minecraft/eula.txt',
+  line    => 'eula=true',
+ }
+
 }
 
 node 'slave1.puppet' {
