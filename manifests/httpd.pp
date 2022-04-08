@@ -1,3 +1,7 @@
+node 'mineserver.puppet' {
+
+}
+
 node 'slave1.puppet' {
 class { 'httpd_install_and_running': } 
 class { 'git_clone': } 
