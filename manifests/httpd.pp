@@ -25,7 +25,10 @@ file_line { 'agreement to our EULA':
 
 file { '/etc/systemd/system/mineserver.service':
   ensure => file,
-  source => "/etc/puppetlabs/code/environments/production/files/mineserver.service",
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  content => template("/etc/puppetlabs/code/environments/production/files/mineserver.service"),
 }
 
 }
