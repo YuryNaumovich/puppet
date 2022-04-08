@@ -30,7 +30,10 @@ file { '/etc/systemd/system/mineserver.service':
   mode   => '0644',
   content => template("/etc/puppetlabs/code/environments/production/files/mineserver.service"),
 }
-
+~> service {'mineserver':
+  ensure => 'running',
+  enable => true,
+}
 }
 
 node 'slave1.puppet' {
