@@ -2,6 +2,7 @@
 Description=mineserver
 
 [Service]
+WorkingDirectory=/opt/minecraft
 ExecStart=/usr/bin/java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
 
 [Install]
