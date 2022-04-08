@@ -26,5 +26,9 @@ file { '/root/README':
 node 'puppetserver' {
 class { 'nginx_install_and_running': }
 
+exec { 'selinux_to_permissive':
+  command     => 'setenforce 0',
+  user => 'root',
+  }
 
 }
